@@ -7,60 +7,46 @@
                                                                                 <div class="c_inner_b">
                                                                 <div class="pad_content_inner">
                                                                 
-                                                                        <div id="breadcrumb"><a href="#">Home</a>  &gt;  <a href="#">Category</a></div><!-- end breadcrumb -->
+                                                                        <div id="breadcrumb"><a href="#">Kategori</a>  &gt;  <a href="#">{{ kategori.nama }}</a></div><!-- end breadcrumb -->
 
                                                                         <br />
-                                                                        <h3>Let's See What We Have Here</h3>
+                                                                        <h3>Kategori {{ kategori.nama }}</h3>
                                                                         <div class="headings">
                                                                                 <ul>
-                                                                                        <li class="prodname">Product Name </li>
-                                                                                        <li class="priceHead">Price</li>
-                                                                                        <li class="remove">Buy Now</li>
+                                                                                        <li class="prodname">Nama Produk</li>
+                                                                                        <li class="priceHead">Harga</li>
+                                                                                        <li class="remove">Kode</li>
 
                                                                                 </ul>
                                                                         </div><!-- end headings -->
+                                                                        {% for produk in list_produk.object_list %}
+                                                                        <a href="{%url produk_detil produk.id %}">
                                                                         <div class="catlist">
                                                                                 <ul>
-                                                                                        <li class="prodname"><img src="images/imgcat1.jpg" alt="" class="imgleft" />Product #013</li>
-                                                                                        <li class="priceHead">$230.00</li>
-                                                                                        <li class="buy"><input type="image" src="images/but_buynow.gif" /></li>
+                                                                                        <li class="prodname"><img src="{{ produk.gambar.gambar.url }}" width="150" alt="" class="imgleft" />{{ produk.nama }}</li>
+                                                                                        <li class="priceHead">Rp {{ produk.harga|intcomma }},00</li>
+                                                                                        <li class="buy">{{ produk.kode }}</li>
                                                                                         
                                                                                 </ul>
 
                                                                                 <div class="clr"></div>
-                                                                        </div><!-- end catlist -->
-                                                                        <div class="catlist">
-                                                                                <ul>
-                                                                                        <li class="prodname"><img src="images/imgcat2.jpg" alt="" class="imgleft" />Product #018</li>
-                                                                                        <li class="priceHead">$230.00</li>
-                                                                                        <li class="buy"><input type="image" src="images/but_buynow.gif" /></li>
-                                                                                        
-                                                                                </ul>
+                                                                        </div></a><!-- end catlist -->
+                                                                         {% endfor %} 
+                                                                   <div class="pagination">
+    <span class="step-links">
+        {% if list_produk.has_previous %}
+            <a href="?page={{ list_produk.previous_page_number }}">Sebelumnya</a>
+        {% endif %}
 
-                                                                                <div class="clr"></div>
-                                                                        </div><!-- end catlist -->
-                                                                        <div class="catlist">
-                                                                                <ul>
-                                                                                        <li class="prodname"><img src="images/imgcat3.jpg" alt="" class="imgleft" />Product #09</li>
-                                                                                        <li class="priceHead">$230.00</li>
-                                                                                        <li class="buy"><input type="image" src="images/but_buynow.gif" /></li>
-                                                                                        
-                                                                                </ul>
+        <span class="current">
+            Halaman {{ list_produk.number }} dari {{ list_produk.paginator.num_pages }}.
+        </span>
 
-                                                                                <div class="clr"></div>
-                                                                        </div><!-- end catlist -->
-                                                                        <div class="catlist">
-                                                                                <ul>
-                                                                                        <li class="prodname"><img src="images/imgcat4.jpg" alt="" class="imgleft" />Product #023</li>
-                                                                                        <li class="priceHead">$230.00</li>
-                                                                                        <li class="buy"><input type="image" src="images/but_buynow.gif" /></li>
-                                                                                        
-                                                                                </ul>
-
-                                                                                <div class="clr"></div>
-                                                                        </div><!-- end catlist -->
-                                                                        <div class="pagenumber"><span class="display">Displaying <strong>1</strong> to <strong>4</strong> (of <strong>4</strong> products)</span><span class="result">Result Pages: <strong>1</strong></span></div>
-
+        {% if list_produk.has_next %}
+            <a href="?page={{ list_produk.next_page_number }}">Berikutnya</a>
+        {% endif %}
+    </span>
+</div>
                                                                 </div><!-- end pad_content_inner -->
                                                                                 </div>
                                                                         </div>

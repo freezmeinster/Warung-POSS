@@ -11,7 +11,7 @@
                                                                         <br />
                                                                         <div id="description">
                                                                                 <div id="product_image">
-                                                                                <img src="{{ produk.gambar.gambar.url }}" alt="" />
+                                                                                <img width="150" src="{{ produk.gambar.gambar.url }}" alt="" />
                                                                                 <div class="thumb">
                                                                                 <div class="clr"></div>
 
@@ -21,6 +21,14 @@
                                                                                         <div class="title_description"><h2>{{ produk.nama }}</h2></div>
                                                                                           <p>{{ produk.keterangan|safe}}</p>
                                                                                 <h4>Spesifikasi Produk</h4>
+                                                                                <div class="row">
+                                                                                        <ul>
+
+                                                                                                <li class="col1">Kode</li>
+                                                                                                <li class="col2">{{ produk.kode }}</li>
+                                                                                        </ul>
+                                                                                </div>
+                                                                                <br style="clear:both;"  />
                                                                                 <div class="row">
                                                                                         <ul>
 
