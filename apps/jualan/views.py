@@ -1,5 +1,8 @@
+import os
+from glob import glob
+from django.conf import settings
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response,redirect
 from jualan.models import Produk, Kategori
 from django.template import RequestContext
 
@@ -53,3 +56,11 @@ def kategori(request,kategori_id):
             'kategori' : kategori,
             'list_produk' : produks,
         },context_instance=RequestContext(request))
+
+def static(request,slug):
+    loc = os.path.join(settings.TEMPLATE_DIRS[0],"static/"+slug+".html")
+    if glob(loc):
+	return render_to_response("static/"+slug+".html",{
+	},context_instance=RequestContext(request))
+    else :
+	return redirect("/")

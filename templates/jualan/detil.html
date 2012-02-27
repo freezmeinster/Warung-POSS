@@ -25,7 +25,7 @@
                                                                                         <ul>
 
                                                                                                 <li class="col1">Kode</li>
-                                                                                                <li class="col2">{{ produk.kode }}</li>
+                                                                                                <li class="col2">: {{ produk.kode }}</li>
                                                                                         </ul>
                                                                                 </div>
                                                                                 <br style="clear:both;"  />
@@ -33,7 +33,7 @@
                                                                                         <ul>
 
                                                                                                 <li class="col1">Harga</li>
-                                                                                                <li class="col2">Rp {{ produk.harga|intcomma }},00</li>
+                                                                                                <li class="col2">: Rp {{ produk.harga|intcomma }},00</li>
                                                                                         </ul>
                                                                                 </div>
                                                                                 <br style="clear:both;"  />
@@ -41,7 +41,7 @@
                                                                                         <ul>
                                                                                                 <li class="col1">Jenis</li>
 
-                                                                                                <li class="col2">{{ produk.get_jenis_display }}</li>
+                                                                                                <li class="col2">: {{ produk.get_jenis_display }}</li>
                                                                                         </ul>
                                                                                 </div>
 
@@ -49,7 +49,7 @@
                                                                                 <div class="row">
                                                                                         <ul>
                                                                                                 <li class="col1">Minimal Pembelian</li>
-                                                                                                <li class="col2">{{ produk.minimal_beli }} {{ produk.satuan }}</li>
+                                                                                                <li class="col2">: {{ produk.minimal_beli }} {{ produk.satuan }}</li>
                                                                                         </ul>
 
                                                                                 </div>
@@ -57,7 +57,7 @@
                                                                                 <div class="row">
                                                                                         <ul>
                                                                                                 <li class="col1">Tersedia</li>
-                                                                                                <li class="col2">{{ produk.jumlah }} {{ produk.satuan }}</li>
+                                                                                                <li class="col2">: {{ produk.jumlah }} {{ produk.satuan }}</li>
                                                                                         </ul>
                                                                                 </div>
 

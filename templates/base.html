@@ -11,9 +11,6 @@
   <meta name="description" content="" />
 <title>Warung Open Source</title>
 
-<!-- ////////////////////////////////// -->
-<!-- //      Start Stylesheets       // -->
-<!-- ////////////////////////////////// -->
 <link href="/asset/css/style.css" rel="stylesheet" type="text/css" />
 <link href="/asset/css/inner.css" rel="stylesheet" type="text/css" />
 <!--[if IE 6]>
@@ -21,9 +18,6 @@
 	<link href="css/ie6.css" rel="stylesheet" type="text/css" />
 <![endif]-->
 
-<!-- ////////////////////////////////// -->
-<!-- //      Javascript Files        // -->
-<!-- ////////////////////////////////// -->
 <script type="text/javascript" src="/asset/js/jquery.js"></script>
 <script type="text/javascript" src="/asset/js/slider.js"></script>
 <script type="text/javascript" src="/asset/js/jquery.scrollable.js"></script>
@@ -46,6 +40,7 @@
 					<ul>
 						<li id="home"><a href="http://poss-upi.org">Beranda</a></li>
 						<li><a href="/">Produk</a></li>
+						<li><a href="/produk/static/cara-pesan">Cara Memesan</a></li>
 						<li><a href="#">Hubungi Kami</a></li>
 					</ul>
 				</div><!-- end menu -->
@@ -59,7 +54,7 @@
 				<div id="topsearch">
 				<form action="#" method="post">
 				<fieldset>
-				<span class="bg_input"><input type="text" class="inputbox" value="Mencari sesuatu ?"  onblur="if(this.value=='') this.value='mencari sesuatu ?';" onfocus="if(this.value=='mencari sesuatu ?') this.value='';" /></span><input type="image" src="/asset/images/but_search.gif" class="but" />
+<!-- 				<span class="bg_input"><input type="text" class="inputbox" value="Mencari sesuatu ?"  onblur="if(this.value=='') this.value='mencari sesuatu ?';" onfocus="if(this.value=='mencari sesuatu ?') this.value='';" /></span><input type="image" src="/asset/images/but_search.gif" class="but" /> -->
 				</fieldset>
 				</form>
 				</div><!-- end topsearch -->
@@ -108,9 +103,21 @@
 								<div class="sidebox">
 									<div class="sidebox_t">
 									<div class="sidebox_b">
-										<h2>Kategori</h2>
+										<h2>Barang</h2>
 										<div class="padbox_side">
-											<ul>{% for kategori in list_kategori %}
+											<ul>{% for kategori in list_kategori_barang %}
+												<li><a href="{% url kategori_detil kategori.id %}">{{ kategori.nama }}</a></li>
+											{% endfor %}</ul>
+										</div>
+									</div>
+									</div>
+								</div>
+								<div class="sidebox">
+									<div class="sidebox_t">
+									<div class="sidebox_b">
+										<h2>Jasa</h2>
+										<div class="padbox_side">
+											<ul>{% for kategori in list_kategori_jasa %}
 												<li><a href="{% url kategori_detil kategori.id %}">{{ kategori.nama }}</a></li>
 											{% endfor %}</ul>
 										</div>
@@ -128,7 +135,7 @@
 										<div class="padbox_side">
 										<h4>{{ hot.nama }}</h4><br />
 										<p><img src="{{ hot.gambar.gambar.url }}" alt="" class="imgcenter" /></p>
-                                                                                 <span class="price">Rp {{ hot.harga|intcomma }},00</span>
+                                                                                 <span class="price">Hanya Rp {{ hot.harga|intcomma }},00</span>
 										<span class="strip"><img src="/asset/images/strip.gif" alt="" /></span>
 										</div>
 									</div>

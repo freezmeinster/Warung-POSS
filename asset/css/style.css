@@ -200,7 +200,7 @@ right:0;
 .pad_content{padding:0px 15px 0px 0px ;}
 .pad_content_inner{padding:10px 12px 30px 13px ;}
 /* box product */
-.prodbox{background-image:url(../images/box_m.gif); background-repeat:repeat-y; width:226px; float:left; margin:0px 9px 0px 0px}
+.prodbox{background-image:url(../images/box_m.gif); background-repeat:repeat-y; width:226px; float:left; margin:10px 9px 0px 0px}
 .prodbox.nomargin{margin:0px 0px 9px 0px;}
 .prodbox_c{background-image:url(../images/box_t.gif); background-repeat:no-repeat; background-position:top;}
 .prodbox_b{background-image:url(../images/box_b.gif); background-repeat:no-repeat; background-position:bottom;}

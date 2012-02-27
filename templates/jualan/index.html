@@ -2,32 +2,39 @@
 {% load humanize %}
 
                                                                 {% block main_content %}
-
-                                                                <div class="pad_content">
-                                                                <h1>Selamat datang di Warung Kami</h1>
-                                                                <p></p>
-                                                                {% for produk in list_produk.object_list %}
-                                                                <a href="{% url produk_detil produk.id %}">
-                                                                <div class="prodbox">
-                                                                        <div class="prodbox_c">
-                                                                        <div class="prodbox_b">
-                                                                                <div class="pad_box">
-                                                                                        <h2 class="prod_title">{{ produk.nama }}</h2>
-                                                                                        <img src="{{ produk.gambar.gambar.url }}" width="150" alt="" class="imgcenter" />
-                                                                                        <p>{{ produk.keterangan|safe|truncatewords:20 }}</p>
-                                                                                        <p><span class="price"> Rp {{ produk.harga|intcomma }},00</span></p>
-                                                                                </div>
-                                                                        </div>
-                                                                        </div>
-                                                                </div>
-                                                                </a>
-                                                                {% endfor %}
-                                                                <br style="clear:both;"  />
+								    <div class="pad_content">
+								    <h1>Selamat datang di Warung Kami</h1>
+								    <p></p>
+								    {% for produk in list_produk.object_list %}
+								    {% if forloop.counter|divisibleby:3 %}
+								    <div class="prodbox nomargin">
+								    {% endif %}
+								    <a href="{% url produk_detil produk.id %}">
+								    <div class="prodbox">
+									    <div class="prodbox_c">
+									    <div class="prodbox_b">
+										    <div class="pad_box">
+											    <h2 class="prod_title">{{ produk.nama }}</h2>
+											    <img src="{{ produk.gambar.gambar.url }}" width="150" alt="" class="imgcenter" />
+											    <p>{{ produk.keterangan|striptags|truncatewords:10 }}</p>
+											    <p><span class="price"> Rp {{ produk.harga|intcomma }},00</span></p>
+										    </div>
+									    </div>
+									    </div>
+								    </div>
+								    
+								    {% if forloop.counter|divisibleby:3 %}
+								    </div>
+								    </a><br style="clear:both;"  />
+								    {% endif %}
+								    {% endfor %}
                                                                 
                                                                 <div class="clr"></div>
                                                                 </div>
+                                                                <br style="clear:both;"  />
+    {% if list_produk.has_previous == False %}                                                            
      <div class="pagination">
-    <span class="step-links">
+       <span class="step-links">
         {% if list_produk.has_previous %}
             <a href="?page={{ list_produk.previous_page_number }}">Sebelumnya</a>
         {% endif %}
@@ -39,6 +46,7 @@
         {% if list_produk.has_next %}
             <a href="?page={{ list_produk.next_page_number }}">Berikutnya</a>
         {% endif %}
-    </span>
-</div>
+      </span>
+     </div>
+     {% endif %}
                                                                  {% endblock %}
