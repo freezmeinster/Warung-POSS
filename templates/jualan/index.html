@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+                                                                {% block main_content %}
+
+                                                                <div class="pad_content">
+                                                                <h1>Selamat datang di Warung Kami</h1>
+                                                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit vero eos et accusamus et iusto odio dignissimos.</p>
+                                                                {% for produk in list_produk %}
+                                                                <a href="{% url produk_detil produk.id %}">
+                                                                <div class="prodbox">
+                                                                        <div class="prodbox_c">
+                                                                        <div class="prodbox_b">
+                                                                                <div class="pad_box">
+                                                                                        <h2 class="prod_title">{{ produk.nama }}</h2>
+                                                                                        <img src="{{ produk.gambar.gambar.url }}" alt="" class="imgcenter" />
+                                                                                        <p>{{ produk.keterangan|safe|truncatewords:20 }}</p>
+                                                                                        <p><span class="price"> Rp {{ produk.harga|intcomma }},00</span></p>
+                                                                                </div>
+                                                                        </div>
+                                                                        </div>
+                                                                </div>
+                                                                </a>
+                                                                {% endfor %}
+                                                                <br style="clear:both;"  />
+                                                                
+                                                                <div class="clr"></div>
+                                                                </div>
+                                                                 {% endblock %}

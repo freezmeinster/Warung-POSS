@@ -1,0 +1,185 @@
+{% load humanize %}
+{% load l10n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="" />
+  <meta name="title" content="" />
+  <meta name="description" content="" />
+<title>Warung Open Source</title>
+
+<!-- ////////////////////////////////// -->
+<!-- //      Start Stylesheets       // -->
+<!-- ////////////////////////////////// -->
+<link href="/asset/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/asset/css/inner.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+    <script type="text/javascript" src="js/unitpngfix.js"></script>
+	<link href="css/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+<!-- ////////////////////////////////// -->
+<!-- //      Javascript Files        // -->
+<!-- ////////////////////////////////// -->
+<script type="text/javascript" src="/asset/js/jquery.js"></script>
+<script type="text/javascript" src="/asset/js/slider.js"></script>
+<script type="text/javascript" src="/asset/js/jquery.scrollable.js"></script>
+<script type="text/javascript" src="/asset/js/jquery.mousewheel.js"></script>
+<script type="text/javascript" >
+	$(function() {
+		$("#scrollable").scrollable({horizontal:true,size: 4});
+	});
+</script>
+</head>
+<body>
+<div id="container">
+	<div id="centercolumn">
+	
+	<!-- BEGIN HEADER -->
+		<div id="header">
+			<div id="topmenu">
+				<div id="menu">
+					<ul>
+						<li id="home"><a href="http://poss-upi.org">Beranda</a></li>
+						<li><a href="/">Produk</a></li>
+						<li><a href="#">Hubungi Kami</a></li>
+					</ul>
+				</div><!-- end menu -->
+				<div id="cart"></div>
+				<!-- end cart -->
+			</div><!-- end topmenu -->
+			<div id="top">
+				<div id="logo">
+				  <a href="/"><img src="/asset/images/logo.png" alt="" /></a>
+				</div><!-- end logo -->
+				<div id="topsearch">
+				<form action="#" method="post">
+				<fieldset>
+				<span class="bg_input"><input type="text" class="inputbox" value="Mencari sesuatu ?"  onblur="if(this.value=='') this.value='mencari sesuatu ?';" onfocus="if(this.value=='mencari sesuatu ?') this.value='';" /></span><input type="image" src="/asset/images/but_search.gif" class="but" />
+				</fieldset>
+				</form>
+				</div><!-- end topsearch -->
+			</div><!-- end top -->
+		</div>
+	<!-- END OF HEADER -->
+	
+	<div class="clr"></div><!-- clear float -->
+	
+	<!-- BEGIN CONTENT -->
+		<div id="content">
+			<div id="c_top">
+				<div id="c_bottom">
+				
+				<!-- begin slider -->
+					<div id="slide">
+						<div id="scrollable"> 
+							<a class="prev"></a>
+							<a class="next"></a>   
+							<div class="items"> 
+                                                                {% for produk in produk_slider%}
+								<div class="slide-items">
+                                                                        <a href="{% url produk_detil produk.id %}">
+									<h4>{{ produk.nama }}</h4>
+									<img src="{{ produk.gambar.gambar.url }}" alt="" />
+                                                                        </a>
+								</div>
+                                                                {% endfor %}
+								<div style="clear: both;"></div>
+							</div> 
+						</div><!--end scrollable-->
+					</div>
+				<!-- end slider -->
+				
+					<br style="clear:both;"  />
+					
+					<div id="maincontent">
+					
+						<div id="main">
+							<div id="mainleft">
+                                                                    {% block main_content %}
+                                                                    {% endblock %}
+							</div><!-- end mainleft -->
+							
+							<div id="side">
+								<div class="sidebox">
+									<div class="sidebox_t">
+									<div class="sidebox_b">
+										<h2>Kategori</h2>
+										<div class="padbox_side">
+											<ul>{% for kategori in list_kategori %}
+												<li><a href="{% url kategori_detil kategori.id %}">{{ kategori.nama }}</a></li>
+											{% endfor %}</ul>
+										</div>
+									</div>
+									</div>
+								</div><!-- end sidebox -->
+								<div class="sidebox2">
+								<img src="images/free_shipping.gif" alt="" />
+								</div><!-- end sidebox2 -->
+                                                                {% if hot %}
+                                                                <a href="">
+								<div class="sidebox">
+									<div class="sidebox_t">
+									<div class="sidebox_b">
+										<div class="padbox_side">
+										<h4>{{ hot.nama }}</h4><br />
+										<p><img src="{{ hot.gambar.gambar.url }}" alt="" class="imgcenter" /></p>
+                                                                                 <span class="price">Rp {{ hot.harga|intcomma }},00</span>
+										<span class="strip"><img src="/asset/images/strip.gif" alt="" /></span>
+										</div>
+									</div>
+									</div>
+								</div>
+                                                                </a>
+                                                                {% endif %}
+                                                                <div class="sidebox">
+                                                                        <div class="sidebox_t">
+                                                                        <div class="sidebox_b">
+                                                                                 <h2>Didukung Oleh</h2>
+                                                                                <div class="padbox_side">
+                                                                                    <a href="http://www.indoschool.org/" target="_blank"><img src="/asset/clsc.png" height="80"/></a>
+                                                                                </div>
+                                                                        </div>
+                                                                        </div>
+                                                                </div>
+                                                                <div class="sidebox">
+                                                                        <div class="sidebox_t">
+                                                                        <div class="sidebox_b">
+                                                                               <h2>Dibuat dengan</h2>
+                                                                                <div class="padbox_side">
+                                                                                        <a href="http://www.python.org/" target="_blank"><img src="/asset/python-logo.png" height="50"/></a>
+                                                                                        <a href="https://www.djangoproject.com/" target="_blank"><img src="/asset/django-logo-negative.png"/></a>
+                                                                                    
+                                                                                </div>
+                                                                        </div>
+                                                                        </div>
+                                                                </div><!-- end sidebox -->
+                                                            </div><!-- end side -->
+							
+							<div class="clr"></div><!-- clear float -->
+						</div><!-- end main -->
+					
+					</div><!-- end maincontent -->
+				</div><!-- end c_bottom -->
+			</div><!-- end c_top -->
+		</div>
+	<!-- END OF CONTENT -->
+	
+	
+	<!-- BEGIN FOOTER -->
+		<div id="footer">
+			<div id="footleft">Copyright &copy;2012 Warung POSS. All Rights Reserved</div>
+			<div id="footlright"></div>
+		</div>
+	<!-- END OF FOOTER -->
+		
+	</div><!-- end of centercolumn -->
+</div><!-- end of container -->
+
+
+</body>
+
+</html>

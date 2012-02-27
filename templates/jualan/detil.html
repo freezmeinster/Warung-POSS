@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+                                                                {% block main_content %}
+                                                                         <div class="c_inner">
+                                                                        <div class="c_inner_t">
+                                                                                <div class="c_inner_b">
+                                                                <div class="pad_content_inner">
+                                                                        <div id="breadcrumb"><a href="/">Produk</a>  &gt;  <a href="#">{{ produk.kategori }}</a>  &gt;  <a href="#">{{ produk.nama }}</a></div><!-- end breadcrumb -->
+
+                                                                        <br />
+                                                                        <div id="description">
+                                                                                <div id="product_image">
+                                                                                <img src="{{ produk.gambar.gambar.url }}" alt="" />
+                                                                                <div class="thumb">
+                                                                                <div class="clr"></div>
+
+                                                                                </div>
+                                                                                </div><!-- end product_image -->
+                                                                                <div id="product_description">
+                                                                                        <div class="title_description"><h2>{{ produk.nama }}</h2></div>
+                                                                                          <p>{{ produk.keterangan|safe}}</p>
+                                                                                <h4>Spesifikasi Produk</h4>
+                                                                                <div class="row">
+                                                                                        <ul>
+
+                                                                                                <li class="col1">Harga</li>
+                                                                                                <li class="col2">Rp {{ produk.harga|intcomma }},00</li>
+                                                                                        </ul>
+                                                                                </div>
+                                                                                <br style="clear:both;"  />
+                                                                                <div class="row">
+                                                                                        <ul>
+                                                                                                <li class="col1">Jenis</li>
+
+                                                                                                <li class="col2">{{ produk.get_jenis_display }}</li>
+                                                                                        </ul>
+                                                                                </div>
+
+                                                                                <br style="clear:both;"  />
+                                                                                <div class="row">
+                                                                                        <ul>
+                                                                                                <li class="col1">Minimal Pembelian</li>
+                                                                                                <li class="col2">{{ produk.minimal_beli }} {{ produk.satuan }}</li>
+                                                                                        </ul>
+
+                                                                                </div>
+                                                                                <br style="clear:both;"  />
+                                                                                <div class="row">
+                                                                                        <ul>
+                                                                                                <li class="col1">Tersedia</li>
+                                                                                                <li class="col2">{{ produk.jumlah }} {{ produk.satuan }}</li>
+                                                                                        </ul>
+                                                                                </div>
+
+                                                                                
+                                                                                </div><!-- end product_description -->
+                                                                                
+                                                                                </div><!-- end description -->
+
+                                                                                <div class="clr"></div><!-- clear float -->
+                                                                                
+                                                                                                                                                        </div><!-- end pad_content_inner -->
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+{% endblock %}
