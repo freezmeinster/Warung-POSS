@@ -35,6 +35,7 @@ class Produk(models.Model):
     )
     
     nama = models.CharField(max_length=255)
+    kode = models.CharField(max_length=12)
     keterangan = models.TextField(null=True,blank=True)
     kategori = models.ForeignKey(Kategori)
     jenis = models.CharField(max_length=2,choices=JNS_PRODUK)

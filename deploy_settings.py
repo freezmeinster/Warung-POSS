@@ -19,9 +19,9 @@ MANAGERS = settings.MANAGERS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'warung_poss',                      # Or path to database file if using sqlite3.
-        'USER': 'avagata',                      # Not used with sqlite3.
-        'PASSWORD': 'pass4avagata',                  # Not used with sqlite3.
+        'NAME': 'poss-upi_warung',                      # Or path to database file if using sqlite3.
+        'USER': 'poss-upi',                      # Not used with sqlite3.
+        'PASSWORD': 'pass4poss',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
