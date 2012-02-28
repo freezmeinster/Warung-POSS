@@ -74,8 +74,8 @@
                                                                                 <br style="clear:both;"  />
 										<div class="row">
                                                                                         <ul>
-                                                                                                <li class="col1">Diskon</li>
-                                                                                                <li class="col2">: {{ produk.diskon.nominal }} %</li>
+                                                                                                <li class="col1">Berat</li>
+                                                                                                <li class="col2">: {{ produk.berat }} Kg</li>
                                                                                         </ul>
                                                                                 </div>
 										{% endif %}

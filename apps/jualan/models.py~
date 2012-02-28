@@ -43,10 +43,10 @@ class Produk(models.Model):
     jumlah = models.IntegerField()
     satuan = models.CharField(max_length=255)
     diskon = models.ForeignKey(Diskon,null=True,blank=True)
+    minimal_beli = models.CharField(max_length=255)
     slider = models.BooleanField(default=False)
     promote = models.BooleanField(default=False)
     gambar = models.ForeignKey(Gambar,null=True,blank=True)
-    berat = models.FloatField()
     
     class Meta : 
         verbose_name_plural = "Daftar Produk"
