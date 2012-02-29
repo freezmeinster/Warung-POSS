@@ -1,5 +1,5 @@
 from django.contrib import admin
-from jualan.models import Produk, Kategori, Diskon, Gambar
+from jualan import models
 
 class ProdukAdmin(admin.ModelAdmin):
     class Media:
@@ -7,7 +7,9 @@ class ProdukAdmin(admin.ModelAdmin):
               '/asset/tiny_mce/tiny_mce.js',
               '/asset/textarea.js',)
 
-admin.site.register(Produk,ProdukAdmin)
-admin.site.register(Kategori)
-admin.site.register(Diskon)
-admin.site.register(Gambar)
+admin.site.register(models.Produk,ProdukAdmin)
+admin.site.register(models.Kategori)
+admin.site.register(models.Diskon)
+admin.site.register(models.Gambar)
+admin.site.register(models.Pelanggan)
+admin.site.register(models.KeranjangBelanja)

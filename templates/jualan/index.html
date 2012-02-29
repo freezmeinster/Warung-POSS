@@ -19,9 +19,13 @@
 											    
 											    <img src="{{ produk.gambar.gambar.url }}" width="150" alt="" class="imgcenter" />
 											    <p>{{ produk.keterangan|striptags|truncatewords:10 }}</p>
-											    <p><span class="price"> Rp {{ produk.harga|intcomma }},00</span></p>
-											    <p>{% if produk.diskon %}Diskon {{ produk.diskon.nama }}, {{ produk.diskon.nominal }} %{% endif %}</p>
-											    
+											    {% if not produk.diskon %}
+											    <p><span class="price">Rp {{ produk.harga|intcomma }},00</span></p>
+											    {% else %}
+											    <p><span class="price" style="text-decoration: line-through;">Rp {{ produk.harga|intcomma }},00</span></p>
+											    <p><span class="price" style="color:blue;">Hanya Rp {{ produk.get_diskon|intcomma }},00</span></p>
+											    <p>Diskon {{ produk.diskon.nama }}, {{ produk.diskon.nominal }} %</p>
+											    {% endif %}
 										    </div>
 									    </div>
 									    </div>

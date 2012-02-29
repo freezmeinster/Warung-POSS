@@ -53,3 +53,28 @@ class Produk(models.Model):
     
     def __unicode__(self):
         return self.nama
+    
+    def get_diskon(self):
+	harga_potong = (self.harga * self.diskon.nominal) / 100
+	return self.harga - harga_potong
+
+class Pelanggan(models.Model):
+    nama = models.CharField(max_length=255)
+    keranjangbelanja = models.ForeignKey("KeranjangBelanja")
+    
+    class Meta : 
+        verbose_name_plural = "Daftar Pelanggan"
+    
+    def __unicode__(self):
+        return self.nama
+        
+        
+class KeranjangBelanja(models.Model):
+    nama = models.CharField(max_length=255)
+    produk = models.ManyToManyField(Produk)
+    
+    class Meta : 
+        verbose_name_plural = "Daftar Karanjang Belanja"
+    
+    def __unicode__(self):
+        return self.nama
