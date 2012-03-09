@@ -11,21 +11,21 @@
   <meta name="description" content="" />
 <title>Warung Open Source</title>
 
-<link href="/asset/css/style.css" rel="stylesheet" type="text/css" />
-<link href="/asset/css/inner.css" rel="stylesheet" type="text/css" />
-<link href="/asset/jquery-ui/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="{{ STATIC_URL }}/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{{ STATIC_URL }}/css/inner.css" rel="stylesheet" type="text/css" />
+<link href="{{ STATIC_URL }}/jquery-ui/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
 
 <!--[if IE 6]>
     <script type="text/javascript" src="js/unitpngfix.js"></script>
 	<link href="css/ie6.css" rel="stylesheet" type="text/css" />
 <![endif]-->
 
-<script type="text/javascript" src="/asset/js/jquery.js"></script>
-<script type="text/javascript" src="/asset/js/slider.js"></script>
-<script type="text/javascript" src="/asset/js/jquery.scrollable.js"></script>
-<script type="text/javascript" src="/asset/jquery-ui/jquery-ui.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}/js/jquery.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}/js/slider.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}/js/jquery.scrollable.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}/jquery-ui/jquery-ui.js"></script>
 
-<script type="text/javascript" src="/asset/js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}/js/jquery.mousewheel.js"></script>
 <script type="text/javascript" >
 	$(function() {
 		$("#scrollable").scrollable({horizontal:true,size: 4});
@@ -33,7 +33,7 @@
 </script>
 </head>
 <body>
-<img style="position: fixed; top: 0; right: 0; border: 0;" src="/asset/beta.png" alt="Fork me on GitHub">
+<img style="position: fixed; top: 0; right: 0; border: 0;" src="{{ STATIC_URL }}/beta.png" alt="Fork me on GitHub">
 <div id="container">
 	<div id="centercolumn">
 	
@@ -54,7 +54,7 @@
 			</div><!-- end topmenu -->
 			<div id="top">
 				<div id="logo">
-				  <a href="/"><img src="/asset/images/logo.png" alt="" /></a>
+				  <a href="/"><img src="{{ STATIC_URL }}/images/logo.png" alt="" /></a>
 				</div><!-- end logo -->
 				<div id="topsearch">
 				<form action="#" method="post">
@@ -129,9 +129,6 @@
 									</div>
 									</div>
 								</div><!-- end sidebox -->
-								<div class="sidebox2">
-								<img src="images/free_shipping.gif" alt="" />
-								</div><!-- end sidebox2 -->
                                                                 {% if hot %}
                                                                 <a href="">
 								<div class="sidebox">
@@ -139,9 +136,9 @@
 									<div class="sidebox_b">
 										<div class="padbox_side">
 										<h4>{{ hot.nama }}</h4><br />
-										<p><img src="{{ hot.gambar.gambar.url }}" alt="" class="imgcenter" /></p>
+										<p><img width="150px" src="{{ hot.gambar.gambar.url }}" alt="" class="imgcenter" /></p>
                                                                                  <span class="price">Hanya Rp {{ hot.harga|intcomma }},00</span>
-										<span class="strip"><img src="/asset/images/strip.gif" alt="" /></span>
+										<span class="strip"><img src="{{ STATIC_URL }}/images/strip.gif" alt="" /></span>
 										</div>
 									</div>
 									</div>
@@ -153,7 +150,7 @@
                                                                         <div class="sidebox_b">
                                                                                  <h2>Didukung Oleh</h2>
                                                                                 <div class="padbox_side">
-                                                                                    <a href="http://www.indoschool.org/" target="_blank"><img src="/asset/clsc.png" height="80"/></a>
+                                                                                    <a href="http://www.indoschool.org/" target="_blank"><img src="{{ STATIC_URL }}/clsc.png" height="80"/></a>
                                                                                 </div>
                                                                         </div>
                                                                         </div>
@@ -163,8 +160,8 @@
                                                                         <div class="sidebox_b">
                                                                                <h2>Dibuat dengan</h2>
                                                                                 <div class="padbox_side">
-                                                                                        <a href="http://www.python.org/" target="_blank"><img src="/asset/python-logo.png" height="50"/></a>
-                                                                                        <a href="https://www.djangoproject.com/" target="_blank"><img src="/asset/django-logo-negative.png"/></a>
+                                                                                        <a href="http://www.python.org/" target="_blank"><img src="{{ STATIC_URL }}/python-logo.png" height="50"/></a>
+                                                                                        <a href="https://www.djangoproject.com/" target="_blank"><img src="{{ STATIC_URL }}/django-logo-negative.png"/></a>
                                                                                     
                                                                                 </div>
                                                                         </div>
