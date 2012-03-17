@@ -7,7 +7,7 @@ from jualan.models import Produk, Kategori
 from django.template import RequestContext
 
 def home(request):
-    produk = Produk.objects.filter(jumlah__gt=0)
+    produk = Produk.objects.filter(jumlah__gt=0).order_by('id').reverse()
     paginator = Paginator(produk, 12) # Show 25 contacts per page
 
     page = request.GET.get('page')
