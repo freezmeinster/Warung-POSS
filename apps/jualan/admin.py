@@ -4,8 +4,8 @@ from jualan import models
 class ProdukAdmin(admin.ModelAdmin):
     class Media:
         js = (
-              '/asset/tiny_mce/tiny_mce.js',
-              '/asset/textarea.js',)
+              '/static/tiny_mce/tiny_mce.js',
+              '/static/textarea.js',)
 
 admin.site.register(models.Produk,ProdukAdmin)
 admin.site.register(models.Kategori)
